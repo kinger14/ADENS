@@ -238,14 +238,7 @@ usuario = {
 bloqueo_eventos = False
 
 # Contenedores gráficos fijos
-pantalla_perfil = widgets.Output()
-pantalla_ajustes = widgets.Output()
-pantalla_controles = widgets.Output()
-pantalla_leccion = widgets.Output()
 
-menu_desplegable = widgets.Dropdown(description='⚡ Materia:')
-selector_avatar = widgets.Dropdown(description='👤 Icono:')
-panel_ajustes = widgets.Accordion(children=[selector_avatar])
 panel_ajustes.set_title(0, '⚙️ Ajustes de Perfil')
 panel_ajustes.selected_index = None
 
