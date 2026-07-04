@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1qW9SDg99UG3YCoZ5bvEzmTVAi4nM6Oia
 """
 
-import ipywidgets as widgets
+
 from IPython.display import display, clear_output, Audio
 import numpy as np
 import time
