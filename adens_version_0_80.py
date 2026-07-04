@@ -409,7 +409,7 @@ def cargar_leccion(id_materia):
         clear_output(wait=True)
         display(tabs_leccion)
 
-npm install -g localtunnel -q
+
 
 pip install pyngrok -q
 pip install streamlit -q
