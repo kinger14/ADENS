@@ -409,14 +409,14 @@ def cargar_leccion(id_materia):
         clear_output(wait=True)
         display(tabs_leccion)
 
-!pip install streamlit -q
-!npm install -g localtunnel -q
+pip install streamlit -q
+npm install -g localtunnel -q
 
-!pip install pyngrok -q
-!pip install streamlit -q
+pip install pyngrok -q
+pip install streamlit -q
 
 
-!ngrok config add-authtoken "3G37gpv9lrTMuKL3DHjQ8S5Ee50_2P5Hhgx7g7UNHDjjQZng9"
+ngrok config add-authtoken "3G37gpv9lrTMuKL3DHjQ8S5Ee50_2P5Hhgx7g7UNHDjjQZng9"
 
 
 import os
