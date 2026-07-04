@@ -8,7 +8,6 @@ Original file is located at
 """
 
 
-from IPython.display import display, clear_output, Audio
 import numpy as np
 import time
 
