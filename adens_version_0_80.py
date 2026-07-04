@@ -411,8 +411,6 @@ def cargar_leccion(id_materia):
 
 
 
-pip install pyngrok -q
-pip install streamlit -q
 
 
 ngrok config add-authtoken "3G37gpv9lrTMuKL3DHjQ8S5Ee50_2P5Hhgx7g7UNHDjjQZng9"
