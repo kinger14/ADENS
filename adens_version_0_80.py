@@ -239,8 +239,6 @@ bloqueo_eventos = False
 
 # Contenedores gráficos fijos
 
-panel_ajustes.set_title(0, '⚙️ Ajustes de Perfil')
-panel_ajustes.selected_index = None
 
 # Botón para cerrar sesión
 btn_cerrar_sesion = widgets.Button(description="Cerrar Sesión 🚪", button_style='warning', layout=widgets.Layout(margin='10px 0 0 0'))
