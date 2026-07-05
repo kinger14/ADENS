@@ -4,7 +4,7 @@ import time
 import json
 import os
 
-# --- 💾 SISTEMA DE GUARDADO DE PROGRESO ---
+
 ARCHIVO_DATOS = "progreso_estudiantes.json"
 
 def cargar_progreso_global():
@@ -22,7 +22,7 @@ def guardar_progreso_usuario(nombre, datos_usuario):
     with open(ARCHIVO_DATOS, "w", encoding="utf-8") as f:
         json.dump(progreso_total, f, ensure_ascii=False, indent=4)
 
-# --- 🔊 CONFIGURACIÓN DE EFECTOS DE SONIDO SINTÉTICOS ---
+
 def reproducir_sonido(tipo):
     sr = 12000
     t = np.linspace(0, 0.3 if tipo=="acierto" else 0.4, int(sr * (0.3 if tipo=="acierto" else 0.4)))
@@ -33,7 +33,7 @@ def reproducir_sonido(tipo):
         onda = np.sign(np.sin(2 * np.pi * frecuencia * t)) * np.exp(-4 * t)
     st.audio(onda, sample_rate=sr, autoplay=True)
 
-# --- 🧠 GENERADOR AUTOMÁTICO DE 50 MINIJUEGOS POR MATERIA ---
+
 banco_materias = {}
 materias_secundaria = {
     "Matematicas": "🧮 Matemáticas", "Historia": "🏛️ Historia",
@@ -78,25 +78,25 @@ for clave, texto in materias_secundaria.items():
                 "correcta": "Troposfera" if distancia < 12 else "Espacio Exterior" if distancia > 50 else "Estratosfera"
             })
 
-# --- 💾 CONFIGURACIÓN DE AVATARES ---
+
 lista_avatares_config = {
-    "👶 Recluta": {"emoji": "👶", "nivel_req": 1},
-    "🧠 Estudiante": {"emoji": "🧠", "nivel_req": 2},
-    "🚀 Explorador": {"emoji": "🚀", "nivel_req": 3},
-    "🧙 Mago": {"emoji": "🧙", "nivel_req": 4},
-    "🔥 Maestro": {"emoji": "🔥", "nivel_req": 5}
+    "principiante ": {"emoji": "⚪️", "nivel_req": 1},
+    "estudiante": {"emoji": "🧠", "nivel_req": 2},
+    "intermedio": {"emoji": "🚀", "nivel_req": 3},
+    "avanzado": {"emoji": "🌟", "nivel_req": 4},
+    "prodijio": {"emoji": "👑", "nivel_req": 5}
 }
 
-# --- CONTROL DE SESIÓN ---
-if "usuario" not in st.session_state:
-    st.session_state.usuario = {"nombre": "", "xp": 0, "nivel": 1, "aprobados": set(), "avatar_emoji": "👶", "avatar_nombre": "👶 Recluta"}
 
-# --- INTERFAZ GRÁFICA ---
-st.title("🏫 Academia de Secundaria Interactiva")
+if "usuario" not in st.session_state:
+    st.session_state.usuario = {"nombre": "", "xp": 0, "nivel": 1, "aprobados": set(), "avatar_emoji": "⚪️", "avatar_nombre": "principiante"}
+
+
+st.title("ADENS")
 
 if st.session_state.usuario["nombre"] == "":
     nombre_input = st.text_input("Introduce tu nombre para comenzar o continuar tu partida:")
-    if st.button("Ingresar a la Escuela 🚀"):
+    if st.button("Ingresar a ADENS 🚀"):
         if nombre_input.strip() != "":
             nombre_limpio = nombre_input.strip()
             db_global = cargar_progreso_global()
@@ -108,8 +108,8 @@ if st.session_state.usuario["nombre"] == "":
                     "xp": datos_saved["xp"],
                     "nivel": datos_saved["nivel"],
                     "aprobados": set(datos_saved["aprobados"]),
-                    "avatar_emoji": datos_saved.get("avatar_emoji", "👶"),
-                    "avatar_nombre": datos_saved.get("avatar_nombre", "👶 Recluta")
+                    "avatar_emoji": datos_saved.get("avatar_emoji", ""),
+                    "avatar_nombre": datos_saved.get("avatar_nombre", "principiante")
                 }
                 st.toast(f"✨ ¡Bienvenido de vuelta, {datos_saved['nombre']}!")
             else:
